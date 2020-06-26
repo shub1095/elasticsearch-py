@@ -43,6 +43,9 @@ setup(
     maintainer="Seth Michael Larson",
     maintainer_email="seth.larson@elastic.co",
     packages=find_packages(where=".", exclude=("test_elasticsearch*",)),
+    package_data={"elasticsearch": ["py.typed"]},
+    include_package_data=True,
+    zip_safe=False,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: Apache Software License",

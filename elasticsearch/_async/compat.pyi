@@ -1,0 +1,3 @@
+import asyncio
+
+def get_running_loop() -> asyncio.AbstractEventLoop: ...

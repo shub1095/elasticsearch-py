@@ -9,5 +9,5 @@ from ...client.utils import (  # noqa
     _bulk_body,
     query_params,
     SKIP_IN_PATH,
-    NamespacedClient,
+    NamespacedClient as NamespacedClient,
 )

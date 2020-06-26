@@ -50,7 +50,17 @@ except ImportError:
     pd = None
 
 
-class TextSerializer(object):
+class Serializer(object):
+    mimetype = ""
+
+    def loads(self, s):
+        raise NotImplementedError
+
+    def dumps(self, data):
+        raise NotImplementedError()
+
+
+class TextSerializer(Serializer):
     mimetype = "text/plain"
 
     def loads(self, s):
@@ -63,7 +73,7 @@ class TextSerializer(object):
         raise SerializationError("Cannot serialize %r into text." % data)
 
 
-class JSONSerializer(object):
+class JSONSerializer(Serializer):
     mimetype = "application/json"
 
     def default(self, data):
@@ -87,7 +97,7 @@ class JSONSerializer(object):
         if pd:
             if isinstance(data, (pd.Series, pd.Categorical)):
                 return data.tolist()
-            elif hasattr(pd, "NA") and pd.isna(data):
+            elif hasattr(pd, "NA") and data is pd.NA:
                 return None
 
         raise TypeError("Unable to serialize %r (type: %s)" % (data, type(data)))
