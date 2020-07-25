@@ -9,7 +9,7 @@ to be opinion-free and very extendable.
 Installation
 ------------
 
-Install the ``elasticsearch`` package with `pip
+Install the ``elasticsearch`` package with `pip let me test 
 <https://pypi.org/project/elasticsearch>`_::
 
     $ python -m pip install elasticsearch
